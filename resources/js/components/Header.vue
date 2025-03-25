@@ -5,10 +5,10 @@ import { Link } from '@inertiajs/vue3';
 const isMenuOpen = ref(false);
 
 const navigation = [
-    { name: 'Inicio', href: '#' },
-    { name: 'Servicios', href: '#services' },
-    { name: 'Precios', href: '#pricing' },
-    { name: 'Contacto', href: '#contact' },
+    { name: 'Inicio', href: route('home') },
+    { name: 'Servicios', href: route("home") + '#services' },
+    { name: 'Precios', href: route("home") + '#pricing' },
+    { name: 'Contacto', href: route("home") + '#contact' },
 ];
 
 // Close mobile menu when clicking on a link
@@ -39,9 +39,9 @@ const handleNavClick = () => {
         <header class="fixed w-full top-0 z-30 bg-gray-900/95 backdrop-blur-sm border-b border-[#ffdf00]/10">
             <nav class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
                 <div class="flex lg:flex-1">
-                    <a href="#" class="-m-1.5 p-1.5">
+                    <Link :href="route('home')" class="-m-1.5 p-1.5">
                         <span class="text-2xl font-bold text-[#ffdf00]">Osmi Barberstudio</span>
-                    </a>
+                    </Link>
                 </div>
                 
                 <!-- Mobile menu button -->
@@ -70,7 +70,7 @@ const handleNavClick = () => {
 
                 <!-- Desktop menu -->
                 <div class="hidden lg:flex lg:gap-x-12">
-                    <a 
+                    <Link 
                         v-for="item in navigation" 
                         :key="item.name"
                         :href="item.href"
@@ -78,16 +78,16 @@ const handleNavClick = () => {
                         @click="handleNavClick"
                     >
                         {{ item.name }}
-                    </a>
+                    </Link>
                 </div>
 
                 <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a 
-                        href="#" 
+                    <Link 
+                        :href="route('reservation')" 
                         class="rounded-md bg-[#ffdf00] px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-[#ffdf00]/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ffdf00] transition-all"
                     >
                         Reservar
-                    </a>
+                    </Link>
                 </div>
             </nav>
 
@@ -100,9 +100,9 @@ const handleNavClick = () => {
                      :class="isMenuOpen ? 'translate-x-0' : 'translate-x-full'"
                 >
                     <div class="flex items-center justify-between mb-6">
-                        <a href="#" class="-m-1.5 p-1.5">
+                        <Link :href="route('home')" class="-m-1.5 p-1.5">
                             <span class="text-2xl font-bold text-[#ffdf00]">Osmi Barberstudio</span>
-                        </a>
+                        </Link>
                         <button 
                             type="button" 
                             class="rounded-md p-2.5 text-gray-400 hover:text-[#ffdf00] transition-colors"

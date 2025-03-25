@@ -6,6 +6,9 @@ import Services from '@/components/pages/home/Services.vue';
 import Pricing from '@/components/pages/home/Pricing.vue';
 import Contact from '@/components/pages/home/Contact.vue';
 
+const props = defineProps({ services: Array<{ name: string, price: number, features: string[], featured: boolean }> });
+console.log(props.services);
+
 </script>
 
 <template>
@@ -15,11 +18,10 @@ import Contact from '@/components/pages/home/Contact.vue';
     </Head>
 
     <Header />
-
     <div class="min-h-screen bg-gray-900 pt-20">
         <Hero />
         <Services />
-        <Pricing />
+        <Pricing :services="services" />
         <Contact />
     </div>
 </template>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Link } from '@inertiajs/vue3';
+
 </script>
 
 <template>
@@ -56,19 +58,19 @@
                     Donde la artesanía tradicional se encuentra con el estilo moderno. Experimenta el arte de la excelencia en el cuidado personal.
                 </p>
                 <div class="mt-10 flex items-center justify-center gap-x-6">
-                    <a 
-                        href="#" 
+                    <Link 
+                        :href="route('reservation')" 
                         class="rounded-md bg-[#ffdf00] px-5 py-3 text-sm font-semibold text-gray-900 shadow-sm hover:bg-[#ffdf00]/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ffdf00] transform transition-all hover:scale-105"
                     >
                         Reservar Ahora
-                    </a>
-                    <a 
-                        href="#services" 
+                    </Link>
+                    <Link 
+                        :href="route('home') + '#services'" 
                         class="text-sm font-semibold leading-6 text-white hover:text-[#ffdf00] transition-all flex items-center gap-x-2 group"
                     >
                         Nuestros Servicios 
                         <span aria-hidden="true" class="transform transition-transform group-hover:translate-x-1">→</span>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>
